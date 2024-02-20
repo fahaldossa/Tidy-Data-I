@@ -83,4 +83,18 @@ library(tidyr)
 ?fill 
 fill(beetlesdf, Site)
 
+#If you’re happy with this table, you can overwrite the original table with your fixed version
+beetlesdf <- fill(beetlesdf, Site)
+
+#Q.This code should read this file in and fill in the missing values. It does not. Why not?
+beetlesdf4 <- read.table("dung_beetles_read_4.txt", sep = "\t", header = T, na.strings = "-")
+#Because it does'nt say N/A, using the help function, use na.strings = "-" to set the default back to N/A
+fill(beetlesdf4, Site)
+beetlesdf4 <- fill(beetlesdf4, Site)  #Overwrite the original table with the fixed version. This will fill in N/A with teh site numbers 
+
+?read.table
+
+
+
+
 
