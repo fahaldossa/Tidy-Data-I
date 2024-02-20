@@ -55,19 +55,32 @@ summary(beetles4) #No observations and variables, but it gives you mean. median 
 head(beetles4) #It is the same as view, but will only give you the first 6 rows by default
 View(beetles4)   # <-- this one is in Rstudio only
 
+#4. Reading Tables
+#To read in a larger tab;e. we use 'read.table', which is what 'read.csv' does under the hood
+beetlesdf <- read.table("dung_beetles_read_1.csv", sep=",",header=T)
+beetlesdf
+#‘read.table’ is a bit more complex, but a lot more flexible - we had to set the seperator and header, but they are set by default in 'read.csv'
 
+#These two files will not read in with default settings:
+read.table("dung_beetles_read_2.txt")
+read.table("dung_beetles_read_3.txt")
 
+#fix these lines of code so both files read in correctly
+beetlesdf2 <- read.table("dung_beetles_read_2.txt", sep="\t",header=T)  # notice how we set the separator
+beetlesdf2
+#Because it is a txt not a csv,  we use sep = "\t"
 
+beetlesdf3 <- read.table("dung_beetles_read_3.txt", sep="\t",header=T, skip = 1)# notice how we set the separator
+beetlesdf3
+#we use the skip to delete the extra text in the first line
+#Because it is a txt not a csv,  we use sep = "\t
 
+#4.Fill
 
+install.packages('tidyr')
+library(tidyr)
 
-
-
-
-
-
-
-
-
+?fill 
+fill(beetlesdf, Site)
 
 
